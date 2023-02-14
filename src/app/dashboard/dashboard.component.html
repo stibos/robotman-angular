@@ -2,32 +2,68 @@
   <div class="row" style="height: 600px">
     <div class="col">
       <div class="d-flex">
-        <div class="glowing-border me-3 bg-grey-transparent p-3" style="border-left: none; border-top: none; box-shadow: none; height: 185px ">
-          <i class="mx-auto fa-solid fa-gears menu-icon d-block mb-2"></i>
-          <i class="mx-auto fa-solid fa-key menu-icon d-block mb-2"></i>
-          <i class="mx-auto fa-solid fa-clipboard-check menu-icon d-block mb-2"></i>
+        <div class="glowing-border me-3 bg-grey-transparent p-3 mt-4" style="border-left: none; border-top: none; box-shadow: none; height: 185px ">
+          <div class="mb-2"><icon icon="settings"></icon></div>
+          <div class="mb-2"><icon icon="keyword"></icon></div>
+          <div class="mb-2"><icon icon="testcase"></icon></div>
         </div>
 
         <div class="flex-grow-1 ">
 
-          <div style="border-right: none; border-top: none; box-shadow: none"  class="glowing-border bg-grey-transparent p-5 pt-3">
+          <div style="border-right: none; border-top: none; box-shadow: none"  class="glowing-border bg-grey-transparent p-5 pt-2">
 
-            <div class="mb-3">
-              <i class="fa-solid fa-gears menu-icon me-2" style="border-color: #c59d4c; color: #c59d4c;"></i>
-              <i class="fa-solid fa-key menu-icon me-2" style="border-color: #4659ce; color: #4659ce;"></i>
-              <i class="fa-solid fa-clipboard-check menu-icon me-2" style="border-color: #be1cba; color: #be1cba;"></i>
-              <i class="fa-solid fa-xmark menu-icon me-2 ms-5" style="border-color: #ff3333; color: #ff3333;"></i>
-              <i class="fa-solid fa-check menu-icon me-2" style="border-color: #2a772a; color: #2a772a"></i>
+            <div class="mb-4 mt-2 float-start">
+              <div class="pe-3 me-2" style="display: inline-block; color: #2c2c2c; background-color: #ccae8f; border-bottom-left-radius: 25px; border-top-left-radius: 25px; ">
+                <icon icon="settings" class="me-2 text-warning"></icon>
+                settings
+              </div>
+              <icon icon="settings" class="me-2 text-warning"></icon>
+              <icon icon="keyword" class="me-2 text-dark"></icon>
+              <icon icon="testcase" class="me-2 text-secondary"></icon>
             </div>
 
-            <div class="content-editable p-5" contenteditable="true" style="background-color: rgba(66,66,66,0.36); border-radius: 60px">
+            <div class="mb-4 mt-2 float-end">
+              <icon icon="cancel" class="me-2 text-danger"></icon>
+              <icon icon="save" class="text-success"></icon>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="content-editable p-5" contenteditable="true">
 
             <pre class="fs-regular">
-*** keywords ***
+*** Settings ***
+import    Selenium2Library
 
-  gaga
-    tröööööt
 
+*** Test Cases ***
+
+Allgemeine Vertragsbedingungen sind initial nicht akzeptiert
+    Öffne Browser                             https://service.post.ch/zopa/app2/public/ui/view
+    Wert darf nicht wahr sein                 AVB_Toggle
+
+Einzeladressprüfungen sind nicht verfübgar wenn die AVB nicht akzeptiert wurden
+    Komponente darf nicht angezeigt werden    Button_gehe_zu_EAA
+
+Batch-Adressprüfungen sind verfübgar wenn die AVB nicht akzeptiert wurden
+    Komponente muss angezeigt werden          Dateiupload_Batch
+
+Einzeladressprüfungen sind verfübgar wenn die AVB akzeptiert wurden
+    Akzeptiere die AVB
+    Komponente muss angezeigt werden          Button_gehe_zu_EAA
+
+
+*** Keywords ***
+
+Öffne Browser
+    [Arguments]     &#36;&#10100;target&#10101;
+
+    Open Browser    &#36;&#10100;target&#10101;
+
+Wert darf nicht wahr sein
+    [Arguments]    &#36;&#10100;locator&#10101;
+
+    Check value not true    &#36;&#10100;locator&#10101;
           </pre>
           </div>
           </div>

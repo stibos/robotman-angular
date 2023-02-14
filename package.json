@@ -21,8 +21,6 @@
     "@circlon/angular-tree-component": "^11.0.4",
     "@fortawesome/fontawesome-free": "^6.3.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
-    "@swisspost/design-system-intranet-header": "^3.0.7",
-    "@swisspost/design-system-styles": "^5.3.1",
     "ngx-editor": "^15.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

@@ -9,13 +9,15 @@ import {EditorComponent} from './editor/editor.component';
 import {FormsModule} from '@angular/forms';
 import {TreeModule} from '@circlon/angular-tree-component';
 import {TreeComponent} from './tree/tree.component';
+import {IconComponent} from "./icon/icon.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     EditorComponent,
     TreeComponent,
-    DashboardComponent
+    DashboardComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
