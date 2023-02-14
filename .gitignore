@@ -1,2 +1,8 @@
+.angular
 .idea
+.vscode
+.npmrc
 target
+node_modules
+
+package-lock.json

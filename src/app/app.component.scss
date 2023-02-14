@@ -1,0 +1,29 @@
+.main-nav {
+
+  padding-top: 5rem !important;
+
+  ul {
+    list-style-type: none;
+    display: inline-flex;
+  }
+
+  li {
+    white-space: nowrap;
+  }
+}
+
+.navbar {
+  background: none !important;
+  border: none !important;
+}
+
+.gradient-bg {
+  overflow: visible;
+  background-image: radial-gradient(
+      circle
+      farthest-corner at 40px 60px,
+      rgba(211, 154, 12, 0.63) 10%,
+      #2c2c2c 40%
+  );
+
+}
