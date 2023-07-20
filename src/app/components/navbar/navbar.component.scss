@@ -1,0 +1,18 @@
+$brand-icon-bg-color: var(--bs-yellow);
+$brand-logo-size: 90px;
+
+.brand-logo {
+  width: $brand-logo-size;
+  height: $brand-logo-size;
+}
+
+.robot-gradient-bg {
+  overflow: visible;
+  background-image: radial-gradient(
+      circle
+      farthest-corner at 40px 55px,
+      $brand-icon-bg-color 5%,
+      var(--bs-gray-900) 50%
+  );
+
+}

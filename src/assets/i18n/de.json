@@ -1,0 +1,26 @@
+{
+  "app": {
+    "title": "robotMan"
+  },
+  "common": {
+    "icon": {
+      "settings": "Einstellungen",
+      "testcases": "Testfälle",
+      "keywords": "Schlüsselwörter"
+    }
+  },
+  "feature": {
+    "analyze": {
+      "name": "analyze"
+    },
+    "configure": {
+      "name": "configure"
+    },
+    "define": {
+      "name": "define"
+    },
+    "run": {
+      "name": "run"
+    }
+  }
+}

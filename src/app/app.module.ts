@@ -1,32 +1,58 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {EditorComponent} from './editor/editor.component';
-import {FormsModule} from '@angular/forms';
-import {TreeModule} from '@circlon/angular-tree-component';
-import {TreeComponent} from './tree/tree.component';
-import {IconComponent} from "./icon/icon.component";
+import {RootComponent} from './root/root.component';
+import {RobotmanCoreModule} from "../modules/robotman-core/robotman-core.module";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {appInitializerFactory} from "./app.initializer";
+import {NavbarComponent} from "./components/navbar/navbar.component";
+import {CommonModule} from "@angular/common";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {IconComponent} from "../modules/robotman-components/icon/icon.component";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditorComponent,
-    TreeComponent,
-    DashboardComponent,
-    IconComponent
+    RootComponent,
+    NavbarComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    TreeModule,
-    NgbModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    RobotmanCoreModule,
+    IconComponent
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService, Injector],
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }

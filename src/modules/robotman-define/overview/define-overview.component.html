@@ -1,0 +1,80 @@
+<div class="content-container px-4">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex">
+        <div>
+          <div class="border border-primary highlight-top-right me-3 bg-grey-transparent p-3 py-5" >
+            <div class="mb-3"><rman-icon class="text-warning" icon="settings" labelKey="common.icon.settings"></rman-icon></div>
+            <div class="mb-3"><rman-icon class="text-dark" icon="keyword" labelKey="common.icon.keywords"></rman-icon></div>
+            <div class="mb-3"><rman-icon class="text-secondary" icon="testcase" labelKey="common.icon.testcases"></rman-icon></div>
+          </div>
+        </div>
+
+
+        <div class="flex-grow-1 ">
+
+          <div class="border border-primary highlight-top-left bg-grey-transparent p-5 ">
+
+            <div class="mb-4 float-start">
+              <rman-icon icon="settings" class="me-2 text-warning"></rman-icon>
+              <rman-icon icon="keyword" class="me-2 text-dark"></rman-icon>
+              <rman-icon icon="testcase" class="me-2 text-secondary"></rman-icon>
+            </div>
+
+            <div class="mb-4 float-end">
+              <rman-icon icon="cancel" class="me-2 text-danger"></rman-icon>
+              <rman-icon icon="save" class="text-success"></rman-icon>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="p-5 py-5 content-editable-container">
+              <div class="content-editable" contenteditable="true">
+
+            <pre class="fs-regular">
+*** Settings ***
+import    Selenium2Library
+
+
+*** Test Cases ***
+
+Allgemeine Vertragsbedingungen sind initial nicht akzeptiert
+    Öffne Browser                             https://service.post.ch/zopa/app2/public/ui/view
+    Wert darf nicht wahr sein                 AVB_Toggle
+
+Einzeladressprüfungen sind nicht verfübgar wenn die AVB nicht akzeptiert wurden
+    Komponente darf nicht angezeigt werden    Button_gehe_zu_EAA
+
+Batch-Adressprüfungen sind verfübgar wenn die AVB nicht akzeptiert wurden
+    Komponente muss angezeigt werden          Dateiupload_Batch
+
+Einzeladressprüfungen sind verfübgar wenn die AVB akzeptiert wurden
+    Akzeptiere die AVB
+    Komponente muss angezeigt werden          Button_gehe_zu_EAA
+
+
+*** Keywords ***
+
+Öffne Browser
+    [Arguments]     &#36;&#10100;target&#10101;
+
+    Open Browser    &#36;&#10100;target&#10101;
+
+Wert darf nicht wahr sein
+    [Arguments]    &#36;&#10100;locator&#10101;
+
+    Check value not true    &#36;&#10100;locator&#10101;
+          </pre>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

@@ -1,23 +1,14 @@
-
+// colors
 $primary: #ff3333;
 $secondary: #647d8f;
 $success: #72a372;
 $info: #13101c;
 $warning: #ccae8f;
-$danger: #ff3333;
+$danger: $primary;
 $light: #f8f9fa;
 $dark: #907bd7;
 
 
-// Then add them to your custom theme-colors map, together with any additional colors you might need
-$theme-colors: (
-  primary: $primary,
-  secondary: $secondary,
-  success: $success,
-  info: $info,
-  warning: $warning,
-  danger: $danger,
-  light: $light,
-  dark: $dark
-  // add any additional color below
-);
+// border-radius
+$border-radius-default: 2rem;
+$border-radius-highlight: 0.66rem;

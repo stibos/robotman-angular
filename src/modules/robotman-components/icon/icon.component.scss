@@ -1,0 +1,53 @@
+@use "../../robotman-common/style/robotman.variables" as *;
+
+.icon::before {
+  display: inline-block;
+  font-family: $icon-font-family;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  font-weight: $font-weight-bold;
+  padding-top: 4px;
+  border: solid 3px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.user::before {
+  content: $icon-user-code;
+}
+
+.settings::before {
+  content: $icon-settings-code;
+}
+
+.keyword::before {
+  content: $icon-keyword-code;
+}
+
+.testcase::before {
+  content: $icon-testcase-code;
+}
+
+.cancel::before {
+  content: $icon-cancel-code;
+}
+
+.save::before {
+  content: $icon-save-code;
+}
+
+.icon::after {
+  content: attr(label);
+  height: 50px;
+  vertical-align: middle;
+  padding-left: 0.5rem;
+  bottom: 0.4rem;
+  position: relative;
+  font-weight: bold;
+  font-style: normal;
+}

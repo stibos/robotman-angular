@@ -1,35 +1,43 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {TranslateService} from "@ngx-translate/core";
+import {MockTranslateService} from "../modules/robotman-common/spec/mock-translate.service";
+import {NavbarComponent} from "./components/navbar/navbar.component";
 
 describe('AppComponent', () => {
+
+  let sut: AppComponent;
+  const mockTranslateService = new MockTranslateService();
+
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent
+    ],
+      providers: [
+        { provide: TranslateService, useValue: mockTranslateService }
       ],
     }).compileComponents();
+
+    spyOn(mockTranslateService, 'instant')
+      .withArgs('app.title').and.returnValue('robotman-test');
+
+    const fixture = TestBed.createComponent(AppComponent);
+    sut = fixture.componentInstance;
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(sut).toBeTruthy();
   });
 
-  it(`should have as title 'web-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('web-app');
+  it(`should have as title 'robotman-test'`, () => {
+    expect(document.title).toEqual('robotman-test');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('web-app app is running!');
-  });
 });
