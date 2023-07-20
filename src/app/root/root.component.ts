@@ -1,5 +1,4 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
-import {IconComponent} from "../../modules/robotman-components/icon/icon.component";
+import {Component, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'robotman-root',

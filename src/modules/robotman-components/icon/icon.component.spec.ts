@@ -1,5 +1,5 @@
 import {IconComponent} from "./icon.component";
-import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from "@angular/core/testing";
+import {ComponentFixture, TestBed, waitForAsync} from "@angular/core/testing";
 import {TranslateService} from "@ngx-translate/core";
 import {MockTranslateService} from "../../robotman-common/spec/mock-translate.service";
 import {By} from "@angular/platform-browser";

@@ -13,6 +13,7 @@ import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {IconComponent} from "../modules/robotman-components/icon/icon.component";
+import {ContentEditableComponent} from "../modules/robotman-components/content-editable/content-editable.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,7 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     RobotmanCoreModule,
-    IconComponent
+    IconComponent,
+    ContentEditableComponent
 
   ],
   providers: [
